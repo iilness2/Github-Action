@@ -10,12 +10,14 @@ jobs:
   terraform:
     runs-on: ubuntu-latest
     steps:
-#    - name: try choose folder
-#      uses: .
+    - name: try choose folder
+      uses: ./terra
     - name: Run terraform version
-      run: terra/terraform version
+      run: terraform version
   go:
     runs-on: ubuntu-latest
     steps:
+    - name: try choose folder
+      uses: ./go/bin
     - name: Run go version
-      run: go/bin/go version
+      run: go version
