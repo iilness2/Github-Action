@@ -1,16 +1,17 @@
 name: CI
 
-on: [push]
-#    branches:
-#    - master
-#    paths:
-#       - .
+on: 
+  push:
+    branches:
+    - master
+    paths:
+       - .
 jobs:
   terraform:
-    runs-on: ubuntu-latest
+#    runs-on: ubuntu-latest
     steps:
     - name: try choose folder
-      uses: iilness2/Github-Action@master
+      uses: .
     - name: Run terraform version
       run: terra/terraform version
   go:
