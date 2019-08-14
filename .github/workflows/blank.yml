@@ -1,11 +1,11 @@
 name: CI
 
 on: [push]
-  push:
-    branches:
+push:
+  branches:
     - master
-    paths:
-      - .
+  paths:
+    - .
 jobs:
   terraform:
     runs-on: ubuntu-latest
