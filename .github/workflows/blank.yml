@@ -13,11 +13,11 @@ jobs:
 #    - name: try choose folder
 #      uses: ./
     - name: Run terraform version
-      run: terraform version
+      run: ls -la && terraform version
   go:
     runs-on: ubuntu-latest
     steps:
 #    - name: try choose folder
 #      uses: ./go/bin
     - name: Run go version
-      run: go version
+      run: ls -la && go version
