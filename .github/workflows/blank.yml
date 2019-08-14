@@ -8,6 +8,7 @@ jobs:
     steps:
     - name: Run terraform version
       run: terra/terraform version
+    - run: ls -l
   go:
     runs-on: ubuntu-latest
     steps:
