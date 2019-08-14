@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: try choose folder
-      uses: iilness2/Github-Action/.github/workf@master
+      uses: ./.github/action/workf
     - name: Run terraform version
       run: cd .. && terraform version
   go:
