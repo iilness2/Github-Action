@@ -1,0 +1,12 @@
+name: CI
+
+on:
+  push:
+    paths:
+    - terra/
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    steps:
+     - run: terraform version
