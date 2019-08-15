@@ -1,9 +1,10 @@
 name: CI-Jo
 
-on:≈
-  push:
-    branches:    # Array of patterns that match refs/heads
-    - master  
+on: [push]
+
+push:
+  branches:    # Array of patterns that match refs/heads
+  - master  
 jobs:
   terraform:
     runs-on: ubuntu-latest

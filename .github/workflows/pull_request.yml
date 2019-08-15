@@ -1,0 +1,12 @@
+on: pull_request
+name: Monorepo PR Repo Labeler
+jobs:
+  labelPRMonorepos:
+    name: Label PR Monorepos
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Label PR Monorepos
+      uses: adamzolyak/monorepo-pr-labeler-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
