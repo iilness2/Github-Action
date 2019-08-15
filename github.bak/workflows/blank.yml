@@ -1,20 +1,28 @@
 name: CI-Jo-poooo
 
+#on: [push]
 on:
   push:
     branches:
     - master
     paths:       # Push events containing matching files
     - github/*
+#push:
+#  branches:    # Array of patterns that match refs/heads
+#  - master  
 jobs:
   terraform:
     runs-on: ubuntu-latest
     steps:
+#    - uses: iilness2/Github-Action@master
+#    - uses: ./github/action/workf
     - uses: actions/checkout@master
     - name: Run terraform version
        run: ls -la && cd .. && terraform version
   go:
     runs-on: ubuntu-latest
     steps:
+#    - name: try choose folder
+#      uses: ./go/bin
     - name: Run go version
       run: cd .. && go version
