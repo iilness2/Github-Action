@@ -4,15 +4,15 @@ on:
   push:
     branches:
     - master
-#    paths:       # Push events containing matching files
-#    - github/*
+    paths:       # Push events containing matching files
+    - github/*
 jobs:
   terraform:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
     - name: Run terraform version
-      run: ls -la && cd .. && terraform version
+      run: ls -la && ./terra/terraform version
   go:
     runs-on: ubuntu-latest
     steps:
