@@ -4,8 +4,8 @@ on:
   push:
     branches:
     - master
-    paths:       # Push events containing matching files
-    - github/*
+#    paths:       # Push events containing matching files
+#    - github/*
 jobs:
   terraform:
     runs-on: ubuntu-latest
