@@ -1,6 +1,6 @@
 name: CI-Jo
 
-on: [push]
+on:≈
   push:
     branches:    # Array of patterns that match refs/heads
     - master  
