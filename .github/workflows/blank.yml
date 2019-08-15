@@ -12,7 +12,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Run terraform version
-      run: ls -la && ./terra/terraform version
+      run: ls -la && ./terra/terraform version && terraform version
   go:
     runs-on: ubuntu-latest
     steps:
