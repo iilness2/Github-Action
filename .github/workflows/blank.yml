@@ -1,4 +1,4 @@
-name: CI-Jo-poooo
+name: WOI
 
 on:
   push:
@@ -12,7 +12,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Run terraform version
-       run: ls -la && cd .. && terraform version
+      run: ls -la && cd .. && terraform version
   go:
     runs-on: ubuntu-latest
     steps:
