@@ -5,6 +5,8 @@ on:
   push:
     branches:
     - master
+  paths:       # Push events containing matching files
+  - github/*
 #push:
 #  branches:    # Array of patterns that match refs/heads
 #  - master  
