@@ -16,8 +16,9 @@ jobs:
     steps:
 #    - uses: iilness2/Github-Action@master
 #    - uses: ./github/action/workf
+    - uses: actions/checkout@master
     - name: Run terraform version
-      run: cd .. && terraform version
+       run: ls -la && cd .. && terraform version
   go:
     runs-on: ubuntu-latest
     steps:
