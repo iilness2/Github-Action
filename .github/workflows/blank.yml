@@ -6,7 +6,7 @@ jobs:
   terraform:
     runs-on: ubuntu-latest
     steps:
-    - uses: iilness2/checkout@v1
+    - uses: iilness2/checkout@master
     - name: try choose folder
       uses: ./.github/action/workf
     - name: Run terraform version
