@@ -1,9 +1,9 @@
 name: CI
 
 on: [push]
-push:
-  branches:    # Array of patterns that match refs/heads
-  - master  
+  push:
+    branches:    # Array of patterns that match refs/heads
+    - master  
 jobs:
   terraform:
     runs-on: ubuntu-latest
