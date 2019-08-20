@@ -8,3 +8,10 @@ jobs:
    steps:
    - name: Change Name
      run: echo did my first step run?
+ terraform:
+   runs-on: ubuntu-latest
+   steps:
+   - name: Change Name
+     uses: hashicorp/terraform-github-actions/plan@v3.0
+     run: terraform version
+
