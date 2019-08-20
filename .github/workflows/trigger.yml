@@ -25,3 +25,9 @@ jobs:
       with:
         go-version: '1.11.x' # The Go version to download (if necessary) and use.
     - run: go run main.go
+
+ check-go-file:
+   runs-on: ubuntu-latest
+   steps:
+   - name: Change Name
+     run: ls -al
