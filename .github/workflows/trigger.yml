@@ -9,11 +9,19 @@ jobs:
    - name: Change Name
      run: echo did my first step run?
 
- terraform:
-   runs-on: ubuntu-latest
-   steps:
-   - name: Using terraform
-     uses: hashicorp/terraform-github-actions@v0.3.5
-   - name: Check terraform version
-     run: terraform version
+#  terraform:
+#    runs-on: ubuntu-latest
+#    steps:
+#    - name: Using terraform
+#      uses: hashicorp/terraform-github-actions/plan@v0.3.5
+#    - name: Check terraform version
+#      run: terraform version
 
+ setup-go:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - uses: actions/setup-go@v1
+      with:
+        go-version: '1.11.x' # The Go version to download (if necessary) and use.
+    - run: go run main.go
