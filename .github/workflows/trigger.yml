@@ -14,7 +14,7 @@ jobs:
         # GITHUB_TOKEN: 47f41e4d2701ec4304c5565cc13b8ce482e34276
         GITHUB_TOKEN: ${{ secrets.GITHUB_ACTION_HOOQ_MONOREPO }}
     - name: Checkout
-      run: git clone "https://github.com/HOOQTV/cloud-engineering.git"
+      run: git clone "https://syukur91:$GITHUB_TOKEN@github.com/HOOQTV/cloud-engineering.git"
     - name: Check source files
       run: ls -al 
     - name: Check go version
