@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     # - uses: HOOQTV/cloud-engineering@master
+<<<<<<< HEAD
     - name: setup git
        run: touch ~/.ssh/id_rsa; echo ${key_and_github_action_pr} > ~/.ssh/id_rsa
     - name: Git testing
@@ -17,8 +18,17 @@ jobs:
 #      env:
 #        # GITHUB_TOKEN: 47f41e4d2701ec4304c5565cc13b8ce482e34276
 #        GITHUB_TOKEN: ${{ secrets.GITHUB_ACTION_HOOQ_MONOREPO }}
+=======
+    # - name: Git testing
+    #    run: ssh-agent $(ssh-add ${key_and_github_action_pr}; git clone git@github.com:HOOQTV/cloud-engineering.git)
+    - name: Git Config
+      run: echo ${GITHUB_TOKEN} && git config --global url."https://${GITHUB_TOKEN}@github.com/".insteadOf "https://github.com/"
+      env:
+       # GITHUB_TOKEN: 47f41e4d2701ec4304c5565cc13b8ce482e34276
+       GITHUB_TOKEN: ${{ secrets.GITHUB_ACTION_HOOQ_MONOREPO }}
+>>>>>>> 12399fef0800b8acee30a4a1f19ec508a98e782a
     - name: Checkout
-      run: git clone "https://github.com/HOOQTV/cloud-engineering.git"
+      run: git clone "https://syukur91:$GITHUB_TOKEN@github.com/HOOQTV/cloud-engineering.git"
     - name: Check source files
       run: ls -al 
     - name: Check go version
