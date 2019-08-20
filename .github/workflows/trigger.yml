@@ -1,0 +1,10 @@
+name: trigger
+
+on: [pull_request]
+
+jobs:
+ build:
+
+   steps:
+   - name: Trigger
+     run: echo did my first step run?
