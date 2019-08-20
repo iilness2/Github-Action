@@ -11,7 +11,8 @@ jobs:
     - name: Git Config
       run: echo ${GITHUB_TOKEN} && git config --global url."https://${GITHUB_TOKEN}@github.com/".insteadOf "https://github.com/"
       env:
-        GITHUB_TOKEN: 47f41e4d2701ec4304c5565cc13b8ce482e34276
+        # GITHUB_TOKEN: 47f41e4d2701ec4304c5565cc13b8ce482e34276
+        GITHUB_TOKEN: ${{ secrets.GITHUB_ACTION_HOOQ_MONOREPO }}
     - name: Checkout
       run: git clone "https://github.com/HOOQTV/cloud-engineering.git"
     - name: Check source files
