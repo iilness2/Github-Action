@@ -6,5 +6,5 @@ jobs:
  build:
    runs-on: ubuntu-latest
    steps:
-   - name: Trigger
+   - name: Change Name
      run: echo did my first step run?
