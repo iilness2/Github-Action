@@ -7,8 +7,9 @@ jobs:
  validate-setup:
     runs-on: ubuntu-latest
     steps:
-    - uses: HOOQTV/cloud-engineering@master
-      # run: git clone "https://$GITHUB_TOKEN@github.com/myorg/other-private-repo.git" /other-private-repo
+    # - uses: HOOQTV/cloud-engineering@master
+    - name: Checkout
+      run: git clone "https://$GITHUB_TOKEN@github.com/HOOQTV/cloud-engineering.git"
       env:
         GITHUB_TOKEN: 47f41e4d2701ec4304c5565cc13b8ce482e34276
     - name: Check source files
