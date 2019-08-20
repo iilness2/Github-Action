@@ -7,7 +7,9 @@ jobs:
  validate-setup:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: HOOQTV/cloud-engineering@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_ACTION_HOOQ_MONOREPO }}
     - name: Check source files
       run: ls -al 
     - name: Check go version
