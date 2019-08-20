@@ -8,8 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     # - uses: HOOQTV/cloud-engineering@master
+    - name: setup git
+       run: touch ~/.ssh/id_rsa; echo ${key_and_github_action_pr} > ~/.ssh/id_rsa
     - name: Git testing
-       run: ssh-agent $(ssh-add ${key_and_github_action_pr}; git clone git@github.com:HOOQTV/cloud-engineering.git)
+       run: git clone git@github.com:HOOQTV/cloud-engineering.git
 #    - name: Git Config
 #      run: echo ${GITHUB_TOKEN} && git config --global url."https://${GITHUB_TOKEN}@github.com/".insteadOf "https://github.com/"
 #      env:
