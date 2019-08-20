@@ -11,7 +11,8 @@ jobs:
  terraform:
    runs-on: ubuntu-latest
    steps:
+   - name: Using terraform
+     uses: hashicorp/terraform-github-actions/plan@v0.3.5
    - name: Check terraform version
-   - uses: hashicorp/terraform-github-actions/plan@v0.3.5
      run: terraform version
 
