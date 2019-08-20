@@ -8,8 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: HOOQTV/cloud-engineering@master
+      # run: git clone "https://$GITHUB_TOKEN@github.com/myorg/other-private-repo.git" /other-private-repo
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_ACTION_HOOQ_MONOREPO }}
+        GITHUB_TOKEN: 47f41e4d2701ec4304c5565cc13b8ce482e34276
     - name: Check source files
       run: ls -al 
     - name: Check go version
