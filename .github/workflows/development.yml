@@ -1,0 +1,20 @@
+name: dev-action
+on: [pull_request]
+jobs:
+ validate-setup:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check go version
+      run: go version
+    - name: Check terraform version
+      run: terraform version
+
+ deploy-terraform:
+    runs-on: ubuntu-latest
+    needs: validate-setup
+    steps:
+    - name: Checkout public repo
+      uses: actions/checkout@master
+    - name: Run go code
+      uses: go run main.go
+    
