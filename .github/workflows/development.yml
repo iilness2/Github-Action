@@ -16,7 +16,7 @@ jobs:
       uses: actions/checkout@master
     - name: List file
       run: ls -al
-      working-directory: $GITHUB_WORKSPACE/services
+      working-directory: services
     - name: See the workspace
       run: echo $GITHUB_WORKSPACE
     # - name: Init terraform
