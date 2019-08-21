@@ -1,8 +1,8 @@
 name: dev-action
 on: [pull_request]
 jobs:
+ runs-on: ubuntu-latest
  validate-setup:
-    runs-on: ubuntu-latest
     steps:
     - name: Check go version
       run: go version
@@ -10,7 +10,6 @@ jobs:
       run: terraform version
 
  deploy-terraform:
-    runs-on: ubuntu-latest
     needs: validate-setup
     steps:
     - name: Checkout public repo
