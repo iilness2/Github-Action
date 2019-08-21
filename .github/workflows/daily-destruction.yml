@@ -1,0 +1,13 @@
+name: daily-destruction
+on:
+  schedule:
+  # * is a special character in YAML so you have to quote this string
+  - cron:  '*/5 * * * *'
+jobs:
+ validate-setup:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check go version
+      run: go version
+    - name: Check terraform version
+      run: terraform version
