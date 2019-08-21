@@ -12,10 +12,17 @@ jobs:
       run: printf '%s\n' 'credentials "app.terraform.io" {' 'token = "my-token”' '}' > .terraformrc   && sed -i -e "s/my-token/$TFE_TOKEN/g" .terraformrc
       env:
         TFE_TOKEN: ${{ secrets.TFE_MIYAZAKI_TOKEN }}
+    - name: Checkout public repo
+      uses: actions/checkout@master
     - name: List file
       run: ls -al
-    - name: See the file content
-      run: cat .terraformrc
+    - name: See the workspace
+      run: echo $GITHUB_WORKSPACE
+    # - name: Init terraform
+    #   run: terraform init -input=false 
+    #   env:
+    #     TF_IN_AUTOMATION: true
+    #     TF_WORKSPACE: Dev
 
 #  deploy-terraform:
 #     needs: validate-setup
