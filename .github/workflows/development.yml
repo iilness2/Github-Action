@@ -1,19 +1,22 @@
 name: dev-action
 on: [pull_request]
 jobs:
- runs-on: ubuntu-latest
  validate-setup:
+    runs-on: ubuntu-latest
     steps:
     - name: Check go version
       run: go version
     - name: Check terraform version
       run: terraform version
+    - name: List file
+      run: ls -al
 
- deploy-terraform:
-    needs: validate-setup
-    steps:
-    - name: Checkout public repo
-      uses: actions/checkout@master
-    - name: Run go code
-      run: go run main.go
+#  deploy-terraform:
+#     needs: validate-setup
+#     runs-on: ubuntu-latest
+#     steps:
+#     - name: Checkout public repo
+#       uses: actions/checkout@master
+#     - name: Run go code
+#       run: go run main.go
     
