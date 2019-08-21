@@ -1,0 +1,57 @@
+[
+   {
+          "dnsSearchDomains": null,
+          "logConfiguration": {
+            "logDriver": "awslogs",
+            "secretOptions": null,
+            "options": {
+              "awslogs-group": "${awslogs_group}",
+              "awslogs-region": "${region}",
+              "awslogs-stream-prefix": "sanctuary"
+            }
+          },
+          "entryPoint": [],
+          "portMappings": [
+            {
+              "hostPort": ${host_port},
+              "protocol": "tcp",
+              "containerPort": 6481
+            }
+          ],
+          "command": [],
+          "linuxParameters": null,
+          "cpu": 100,
+          "environment": [],
+          "ulimits": [
+            {
+              "name": "nofile",
+              "softLimit": 10000,
+              "hardLimit": 30000
+            }
+          ],
+          "dnsServers": null,
+          "mountPoints": [
+            {
+              "readOnly": null,
+              "containerPath": "${mount_path}",
+              "sourceVolume": "${volume_name}"
+            }
+          ],
+          "workingDirectory": null,
+          "dockerSecurityOptions": null,
+          "memory": null,
+          "memoryReservation": 512,
+          "volumesFrom": [],
+          "image": "336296984562.dkr.ecr.ap-southeast-1.amazonaws.com/sanctuary:sanctuary-ecs-loadtesting-v0.0.2",
+          "disableNetworking": null,
+          "essential": true,
+          "links": null,
+          "hostname": null,
+          "extraHosts": null,
+          "user": null,
+          "readonlyRootFilesystem": null,
+          "dockerLabels": null,
+          "privileged": null,
+          "name": "sanctuary"
+        }
+]
