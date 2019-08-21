@@ -18,8 +18,8 @@ jobs:
       run: ls -al $HOME
     - name: See the workspace
       run: echo $GITHUB_WORKSPACE
-    - name: Init terraform
-      run: terraform init -input=false 
+    - name: Init and Plan terraform
+      run: terraform init -input=false && terraform plan
       working-directory: services/miyazaki/network
       env:
         TF_IN_AUTOMATION: true
