@@ -14,6 +14,8 @@ jobs:
         TFE_TOKEN: ${{ secrets.TFE_MIYAZAKI_TOKEN }}
     - name: List file
       run: ls -al
+    - name: See the file content
+      run: cat .terraformrc
 
 #  deploy-terraform:
 #     needs: validate-setup
