@@ -14,16 +14,17 @@ jobs:
         TFE_TOKEN: ${{ secrets.TFE_MIYAZAKI_TOKEN }}
     - name: Checkout public repo
       uses: actions/checkout@master
-    - name: List file
-      run: ls -al
-      working-directory: services
+    # - name: List file
+    #   run: ls -al
+    #   working-directory: services/miyazaki/network
     - name: See the workspace
       run: echo $GITHUB_WORKSPACE
-    # - name: Init terraform
-    #   run: terraform init -input=false 
-    #   env:
-    #     TF_IN_AUTOMATION: true
-    #     TF_WORKSPACE: Dev
+    - name: Init terraform
+      run: terraform init -input=false 
+      working-directory: services/miyazaki/network
+      env:
+        TF_IN_AUTOMATION: true
+        TF_WORKSPACE: Dev
 
 #  deploy-terraform:
 #     needs: validate-setup
