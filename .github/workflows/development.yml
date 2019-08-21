@@ -24,11 +24,4 @@ jobs:
       env:
         TF_IN_AUTOMATION: true
         TF_WORKSPACE: Dev
-
- deploy-terraform:
-    needs: validate-setup
-    runs-on: ubuntu-latest
-    steps:
-    - name: List file
-      run: ls -al 
    
