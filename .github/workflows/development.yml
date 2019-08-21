@@ -8,13 +8,20 @@ jobs:
       run: go version
     - name: Check terraform version
       run: terraform version
-
- deploy-terraform:
-    runs-on: ubuntu-latest
-    needs: validate-setup
-    steps:
+    - name: Create terraform cli config
+      run: printf '%s\n' 'credentials "app.terraform.io" {' 'token = "my-token"' '}' > $HOME/.terraformrc   && sed -i -e "s/my-token/$TFE_TOKEN/g" $HOME/.terraformrc
+      env:
+        TFE_TOKEN: ${{ secrets.TFE_MIYAZAKI_TOKEN }}
     - name: Checkout public repo
       uses: actions/checkout@master
-    - name: Run go code
-      run: go run main.go
-    
+    - name: List file
+      run: ls -al $HOME
+    - name: See the workspace
+      run: echo $GITHUB_WORKSPACE
+    - name: Init  terraform
+      run: terraform init -input=false
+      working-directory: services/miyazaki/network
+      env:
+        TF_IN_AUTOMATION: true
+        TF_WORKSPACE: Dev
+   
