@@ -8,6 +8,8 @@ jobs:
       run: go version
     - name: Check terraform version
       run: terraform version
+    - name: Create terraform cli config
+      run: printf '%s\n' 'credentials "app.terraform.io" {' 'token = "my-token”' '}' > .terraformrc   && sed -i -e "s/my-token/$TFE_TOKEN/g" .terraformrc
     - name: List file
       run: ls -al
 
