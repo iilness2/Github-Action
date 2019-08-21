@@ -18,19 +18,17 @@ jobs:
       run: ls -al $HOME
     - name: See the workspace
       run: echo $GITHUB_WORKSPACE
-    - name: Init and Plan terraform
-      run: terraform init -input=false && terraform plan
+    - name: Init  terraform
+      run: terraform init -input=false
       working-directory: services/miyazaki/network
       env:
         TF_IN_AUTOMATION: true
         TF_WORKSPACE: Dev
 
-#  deploy-terraform:
-#     needs: validate-setup
-#     runs-on: ubuntu-latest
-#     steps:
-#     - name: Checkout public repo
-#       uses: actions/checkout@master
-#     - name: Run go code
-#       run: go run main.go
-    
+ deploy-terraform:
+    needs: validate-setup
+    runs-on: ubuntu-latest
+    steps:
+    - name: List file
+      run: ls -al 
+   
