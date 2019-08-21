@@ -1,0 +1,9 @@
+.terraform
+.git
+terraform.tfstate.d
+backups/
+.idea
+vendor
+.vendor-new
+*.tfstate*
+.DS_Store
