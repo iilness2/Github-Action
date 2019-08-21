@@ -9,7 +9,7 @@ jobs:
     - name: Check terraform version
       run: terraform version
     - name: Create terraform cli config
-      run: printf '%s\n' 'credentials "app.terraform.io" {' 'token = "my-token”' '}' > $HOME/.terraformrc   && sed -i -e "s/my-token/$TFE_TOKEN/g" $HOME/.terraformrc
+      run: printf '%s\n' 'credentials "app.terraform.io" {' 'token = "my-token"' '}' > $HOME/.terraformrc   && sed -i -e "s/my-token/$TFE_TOKEN/g" $HOME/.terraformrc
       env:
         TFE_TOKEN: ${{ secrets.TFE_MIYAZAKI_TOKEN }}
     - name: Checkout public repo
