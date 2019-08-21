@@ -16,5 +16,5 @@ jobs:
     - name: Checkout public repo
       uses: actions/checkout@master
     - name: Run go code
-      uses: go run main.go
+      run: go run main.go
     
