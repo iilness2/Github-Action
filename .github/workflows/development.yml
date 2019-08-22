@@ -26,7 +26,9 @@ jobs:
         TF_WORKSPACE: Dev
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCOUNT_DEV }}
         AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_ACCOUNT_SECRET_KEY }}
-    - name: Destroy terraform
+    - name: Apply terraform
+      run:  terraform apply -auto-approve tfplan
+      if: failure()
       run:  terraform destroy -auto-approve 
       working-directory: services/miyazaki/network
       env:
