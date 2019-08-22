@@ -25,7 +25,7 @@ jobs:
         AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_ACCOUNT_SECRET_KEY }}
     - name: Check context
       id: step_2
-      if: failure()
+      if: success()
       env:
         STEPS_CONTEXT: ${{ toJSON(steps) }}
         TF_IN_AUTOMATION: true
