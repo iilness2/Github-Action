@@ -2,7 +2,7 @@ name: dev-action
 on: 
   pull_request:
     paths:
-    - services/miyazaki/network
+    - services/miyazaki/network/*
 jobs:
  validate-setup:
     runs-on: ubuntu-latest
