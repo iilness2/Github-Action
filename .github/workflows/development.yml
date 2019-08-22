@@ -18,6 +18,14 @@ jobs:
       run: ls -al $HOME
     - name: See the workspace
       run: echo $GITHUB_WORKSPACE
+    - name: Check context
+      env:
+        STEPS_CONTEXT: ${{ toJson(steps) }}
+        TF_IN_AUTOMATION: true
+        TF_WORKSPACE: Dev
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCOUNT_DEV }}
+        AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_ACCOUNT_SECRET_KEY }}
+      run: echo "$STEPS_CONTEXT"
     - name: Init and plan terraform
       run: terraform init -input=false && terraform plan -out=tfplan
       working-directory: services/miyazaki/network
