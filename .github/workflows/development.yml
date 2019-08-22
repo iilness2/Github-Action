@@ -14,11 +14,8 @@ jobs:
         TFE_TOKEN: ${{ secrets.TFE_MIYAZAKI_TOKEN }}
     - name: Checkout public repo
       uses: actions/checkout@master
-    - name: List file
-      run: ls -al $HOME
-    - name: See the workspace
-      run: echo $GITHUB_WORKSPACE
     - name: Check context
+      id: step_1
       env:
         STEPS_CONTEXT: ${{ toJson(steps) }}
         TF_IN_AUTOMATION: true
