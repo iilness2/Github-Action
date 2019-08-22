@@ -17,7 +17,7 @@ jobs:
     - name: Check context
       id: step_1
       env:
-        STEPS_CONTEXT: ${{ toJson(steps) }}
+        STEPS_CONTEXT: ${{ toJSON(steps) }}
         TF_IN_AUTOMATION: true
         TF_WORKSPACE: Dev
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCOUNT_DEV }}
