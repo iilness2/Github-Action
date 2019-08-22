@@ -18,10 +18,12 @@ jobs:
       run: ls -al $HOME
     - name: See the workspace
       run: echo $GITHUB_WORKSPACE
-    - name: Init  terraform
-      run: terraform init -input=false
+    - name: Init and plan terraform
+      run: terraform init -input=false && terraform plan
       working-directory: services/miyazaki/network
       env:
         TF_IN_AUTOMATION: true
         TF_WORKSPACE: Dev
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCOUNT_DEV }}
+        AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_ACCOUNT_SECRET_KEY }}
    
