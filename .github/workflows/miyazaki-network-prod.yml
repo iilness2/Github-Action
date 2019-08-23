@@ -14,8 +14,16 @@ jobs:
         TFE_TOKEN: ${{ secrets.TFE_MIYAZAKI_TOKEN }}
     - name: Checkout public repo
       uses: actions/checkout@master
-    - name: Init and plan terraform
-      run: terraform init -input=false -lock=false && terraform plan -out=tfplan -lock=false
+    - name: Init terraform
+      run: terraform init -input=false -lock=false
+      working-directory: services/miyazaki/network
+      env:
+        TF_IN_AUTOMATION: true
+        TF_WORKSPACE: Dev
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCOUNT_PROD }}
+        AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_ACCOUNT_SECRET_KEY }}
+    - name: Plan terraform
+      run: terraform plan -out=tfplan -lock=false
       working-directory: services/miyazaki/network
       env:
         TF_IN_AUTOMATION: true
