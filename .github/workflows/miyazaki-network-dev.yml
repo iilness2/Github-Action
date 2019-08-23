@@ -8,10 +8,9 @@ jobs:
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run: echo "$GITHUB_CONTEXT"
-    - name: Dump steps context
-      env:
-        STEPS_CONTEXT: ${{ toJson(steps) }}
-      run: echo "$STEPS_CONTEXT"
+    - name: Check label
+      if: github.labels[0].name == 'miyazaki-network'
+      run: echo "WEEW"
     # - name: Check go version
     #   run: go version
     # - name: Check terraform version
