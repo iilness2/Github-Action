@@ -9,7 +9,7 @@ jobs:
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run: echo "$GITHUB_CONTEXT"
     - name: Check label
-      if: github.labels != null
+      if: github.event.labels != null
       run: echo "WEEW"
     # - name: Check go version
     #   run: go version
