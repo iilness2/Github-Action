@@ -9,8 +9,8 @@ jobs:
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run: echo "$GITHUB_CONTEXT"
     - name: Check label
-      if: github.event.pull_request.labels.length == 0
-      run: echo "WAAW"
+      if: github.event.pull_request.labels
+      run: echo ${{ github }}
     # - name: Check go version
     #   run: go version
     # - name: Check terraform version
