@@ -8,24 +8,28 @@ jobs:
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run: echo "$GITHUB_CONTEXT"
-    - name: Check go version
-      run: go version
-    - name: Check terraform version
-      run: terraform version
-    - name: Create terraform cli config
-      run: printf '%s\n' 'credentials "app.terraform.io" {' 'token = "my-token"' '}' > $HOME/.terraformrc   && sed -i -e "s/my-token/$TFE_TOKEN/g" $HOME/.terraformrc
+    - name: Dump steps context
       env:
-        TFE_TOKEN: ${{ secrets.TFE_MIYAZAKI_TOKEN }}
-    - name: Checkout public repo
-      uses: actions/checkout@master
-    - name: Init and plan terraform
-      run: terraform init -input=false -lock=false && terraform plan -out=tfplan -lock=false
-      working-directory: services/miyazaki/network
-      env:
-        TF_IN_AUTOMATION: true
-        TF_WORKSPACE: Dev
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCOUNT_DEV }}
-        AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_ACCOUNT_SECRET_KEY }}
+        STEPS_CONTEXT: ${{ toJson(steps) }}
+      run: echo "$STEPS_CONTEXT"
+    # - name: Check go version
+    #   run: go version
+    # - name: Check terraform version
+    #   run: terraform version
+    # - name: Create terraform cli config
+    #   run: printf '%s\n' 'credentials "app.terraform.io" {' 'token = "my-token"' '}' > $HOME/.terraformrc   && sed -i -e "s/my-token/$TFE_TOKEN/g" $HOME/.terraformrc
+    #   env:
+    #     TFE_TOKEN: ${{ secrets.TFE_MIYAZAKI_TOKEN }}
+    # - name: Checkout public repo
+    #   uses: actions/checkout@master
+    # - name: Init and plan terraform
+    #   run: terraform init -input=false -lock=false && terraform plan -out=tfplan -lock=false
+    #   working-directory: services/miyazaki/network
+    #   env:
+    #     TF_IN_AUTOMATION: true
+    #     TF_WORKSPACE: Dev
+    #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCOUNT_DEV }}
+    #     AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_ACCOUNT_SECRET_KEY }}
     # - name: Apply terraform
     #   run:  terraform apply -auto-approve tfplan
     #   working-directory: services/miyazaki/network
