@@ -10,7 +10,7 @@ jobs:
       run: echo "$GITHUB_CONTEXT"
     - name: Check label
       if: github.event.pull_request.labels != null
-      run: echo "WEEW"
+      run: echo "WAAW"
     # - name: Check go version
     #   run: go version
     # - name: Check terraform version
