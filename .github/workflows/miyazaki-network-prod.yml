@@ -1,0 +1,50 @@
+name: prod-action
+on: [release]
+jobs:
+ validate-setup:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check go version
+      run: go version
+    - name: Check terraform version
+      run: terraform version
+    - name: Create terraform cli config
+      run: printf '%s\n' 'credentials "app.terraform.io" {' 'token = "my-token"' '}' > $HOME/.terraformrc   && sed -i -e "s/my-token/$TFE_TOKEN/g" $HOME/.terraformrc
+      env:
+        TFE_TOKEN: ${{ secrets.TFE_MIYAZAKI_TOKEN }}
+    - name: Checkout public repo
+      uses: actions/checkout@master
+    - name: Init terraform
+      run: terraform init -input=false -lock=false
+      working-directory: services/miyazaki/network
+      env:
+        TF_IN_AUTOMATION: true
+        TF_WORKSPACE: Dev
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCOUNT_PROD }}
+        AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_ACCOUNT_SECRET_KEY }}
+    - name: Plan terraform
+      run: terraform plan -out=tfplan -lock=false
+      working-directory: services/miyazaki/network
+      env:
+        TF_IN_AUTOMATION: true
+        TF_WORKSPACE: Dev
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCOUNT_PROD }}
+        AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_ACCOUNT_SECRET_KEY }}
+    # - name: Apply terraform
+    #   run:  terraform apply -auto-approve tfplan
+    #   working-directory: services/miyazaki/network
+    #   env:
+    #     TF_IN_AUTOMATION: true
+    #     TF_WORKSPACE: Dev
+    #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCOUNT_PROD }}
+    #     AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_ACCOUNT_SECRET_KEY }}
+    # - name: Destroy terraform
+    #   if: failure()
+    #   run:  terraform destroy -auto-approve 
+    #   working-directory: services/miyazaki/network
+    #   env:
+    #     TF_IN_AUTOMATION: true
+    #     TF_WORKSPACE: Dev
+    #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCOUNT_PROD }}
+    #     AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_ACCOUNT_SECRET_KEY }}
+   
