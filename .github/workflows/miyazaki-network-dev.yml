@@ -13,9 +13,9 @@ jobs:
       run: echo "$GITHUB_CONTEXT"
     - name: Check label
       if: github.event_name == 'push'
-      run: echo "$GITHUB_CONTEXT"
+      run: echo "$SPECIFIC_CONTEXT"
       env:
-        GITHUB_CONTEXT: ${{ toJson(github.event) }}
+        SPECIFIC_CONTEXT: ${{ toJson(github.event.head_commit) }}
     # - name: Check go version
     #   run: go version
     # - name: Check terraform version
