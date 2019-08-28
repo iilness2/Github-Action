@@ -7,6 +7,6 @@ jobs:
     - name: Dump Job env
       env:
         MY_ENV: syukur91
-        STEP_CONTEXT: ${{ toJson(steps) }}
-      run: echo "$STEP_CONTEXT"
+        STEPS_CONTEXT: ${{ toJson(steps) }}
+      run: echo "$STEPS_CONTEXT"
 
