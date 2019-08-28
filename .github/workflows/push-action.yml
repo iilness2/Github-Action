@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Dump Job env
-      if: github.actor == ${MY_ENV}
+      if: github.actor == ${{MY_ENV}}
       env:
         MY_ENV: syukur91
       run: echo "$MY_ENV"
