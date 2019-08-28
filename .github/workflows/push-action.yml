@@ -8,5 +8,5 @@ jobs:
       env:
         MY_ENV: syukur91
         STEP_CONTEXT: ${{ toJson(steps) }}
-      run: echo "$MY_ENV"
+      run: echo "$STEP_CONTEXT"
 
