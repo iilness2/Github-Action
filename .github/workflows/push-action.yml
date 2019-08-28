@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Dump GitHub context
-        if: github.actor == secrets.TFE_MIYAZAKI_TOKEN
+        if: github.actor == ${{secrets.TFE_MIYAZAKI_TOKEN}}
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
