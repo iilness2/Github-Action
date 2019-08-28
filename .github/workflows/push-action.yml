@@ -6,7 +6,6 @@ jobs:
     steps:
     - name: Dump Job env
       env:
-        MY_ENV: ${{ toJson(jobs.validate-setup.steps.env) }}
+        MY_ENV: jobs.validate-setup.steps.env
       run: echo "$MY_ENV"
 
-      
