@@ -5,8 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Dump Job env
-      if: github.actor == ${{MY_ENV}}
       env:
         MY_ENV: syukur91
+        STEP_CONTEXT: ${{ toJson(steps) }}
       run: echo "$MY_ENV"
 
