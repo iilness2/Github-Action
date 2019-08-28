@@ -5,7 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Dump Job env
+      if: jobs.validate-setup.env.MYENV == ${MY_ENV}
       env:
-        MY_ENV: jobs.validate-setup.steps.env
+        MY_ENV: testv
       run: echo "$MY_ENV"
 
