@@ -5,8 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Dump Job env
-      if: jobs.validate-setup.env.MYENV == ${MY_ENV}
+      if: github.actor == ${MY_ENV}
       env:
-        MY_ENV: testv
+        MY_ENV: syukur91
       run: echo "$MY_ENV"
 
