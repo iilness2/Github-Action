@@ -8,3 +8,5 @@ jobs:
       env:
         MY_ENV: ${{ toJson(jobs.validate-setup.steps.env) }}
       run: echo "$MY_ENV"
+
+      
