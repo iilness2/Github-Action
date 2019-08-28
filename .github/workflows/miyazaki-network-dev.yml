@@ -12,10 +12,10 @@ jobs:
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run: echo "$GITHUB_CONTEXT"
     - name: Check label
-      if: github.event.pull_request.labels[0].name == 'miyazaki-network'
+      if: github.event_name == 'push'
       run: echo "$GITHUB_CONTEXT"
       env:
-        GITHUB_CONTEXT: ${{ toJson(github.event.pull_request.labels) }}
+        GITHUB_CONTEXT: ${{ toJson(github.event) }}
     # - name: Check go version
     #   run: go version
     # - name: Check terraform version
