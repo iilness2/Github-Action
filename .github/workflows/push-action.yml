@@ -1,0 +1,10 @@
+name: push-action
+on: [push]   
+jobs:
+ validate-setup:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Dump Job env
+      env:
+        MY_ENV: ${{ toJson(jobs.validate-setup.steps.env) }}
+      run: echo "$MY_ENV"
