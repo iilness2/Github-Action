@@ -1,7 +1,7 @@
-name: branched-workflow
+name: network-branched-workflow
 on:
  push:
-  branches:    # Array of patterns that match refs/heads
+  branches:
     - CS-*-MIYAZAKI-NETWORK    
 jobs:
  validate-setup:
