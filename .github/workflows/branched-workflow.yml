@@ -1,0 +1,11 @@
+name: branched-workflow
+on:
+ push:
+  branches:    # Array of patterns that match refs/heads
+    - CS-*-MIYAZAKI-NETWORK    
+jobs:
+ validate-setup:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Dump Echo
+      run: echo "branch"
