@@ -6,6 +6,6 @@ jobs:
     steps:
     - uses: syukur91/action101@v1-release
       with:
-        myInput: "Coba"  
+        myInput: "Coba Lagi"  
     - name: Check go version
       run: go version
