@@ -1,0 +1,9 @@
+name: custom-action
+on: [push]
+jobs:
+ validate-setup:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: syukur91/action101@v1-release
+    - name: Check go version
+      run: go version
