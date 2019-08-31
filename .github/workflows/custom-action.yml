@@ -4,7 +4,7 @@ jobs:
  validate-setup:
     runs-on: ubuntu-latest
     steps:
-    - uses: syukur91/action101@v1-release
+    - uses: syukur91/action101@v1
       with:
         myInput: "Coba Lagi"  
     - name: Check go version
