@@ -6,6 +6,6 @@ jobs:
     steps:
     - uses: syukur91/action-collection@v1-release
       with:
-        myInput: "Coba Lagi"  
+        myInput: "Coba Lagi yah"  
     - name: Check go version
       run: go version
