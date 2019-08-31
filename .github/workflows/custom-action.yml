@@ -5,5 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: syukur91/action101@v1-release
+      with:
+        myInput: "Coba"  
     - name: Check go version
       run: go version
