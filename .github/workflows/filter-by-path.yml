@@ -5,7 +5,7 @@ on:
     - CS-*-MIYAZAKI-NETWORK
   paths:
       # '*' matches any character except '/'
-      - 'services/network/*' 
+      - 'services/miyazaki/network/*' 
 jobs:
  validate-setup:
     runs-on: ubuntu-latest
