@@ -5,7 +5,10 @@ on:
     - CS-*-MIYAZAKI-NETWORK
   paths:
       # Set the location of specific folder and detect the changes under specified directory, if there's no any changes it will not trigger the workflow
-      - 'services/miyazaki/network/*' 
+      - 'services/miyazaki/network/backend.tf' 
+      - 'services/miyazaki/network/main.tf' 
+      - 'services/miyazaki/network/output.tf' 
+      - 'services/miyazaki/network/variables.tf' 
 jobs:
  run-the-job:
     runs-on: ubuntu-latest
