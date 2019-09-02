@@ -1,4 +1,4 @@
-name: application-branched-workflow
+name: filter-by-path-workflow
 on:
  push:
   branches:
