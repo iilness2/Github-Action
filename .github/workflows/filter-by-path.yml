@@ -7,7 +7,7 @@ on:
       # '*' matches any character except '/'
       - 'services/miyazaki/network/*' 
 jobs:
- validate-setup:
+ run-the-job:
     runs-on: ubuntu-latest
     steps:
     - name: Dump Echo
