@@ -1,0 +1,14 @@
+name: application-branched-workflow
+on:
+ push:
+  branches:
+    - CS-*-MIYAZAKI-NETWORK
+  paths:
+      # '*' matches any character except '/'
+      - 'services/network/*' 
+jobs:
+ validate-setup:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Dump Echo
+      run: echo "edited"
